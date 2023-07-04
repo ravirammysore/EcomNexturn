@@ -7,12 +7,10 @@ namespace WebApp.Pages;
 
 public class IndexModel : PageModel
 {
-
-    ProductService service;
     public List<Product> Products { get; set; }
     public void OnGet()
     {
-        service = new ProductService();
+        ProductService service = new ProductService();
         Products = service.getAllProduct();
     }
 }

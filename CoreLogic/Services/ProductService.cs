@@ -22,9 +22,16 @@ namespace CoreLogic.Services
                     Price = 20000,
                 },
                 new Product()
+                {
+                    Id = 2,
+                    Name = "Nokia",
+                    Description = "16GB RAM, 512GB storage (SSD)",
+                    Price = 20000
+                },
+                new Product()
                 { 
-                    Id = 2, 
-                    Name = "MSI", 
+                    Id = 3, 
+                    Name = "Apple", 
                     Description = "8GB RAM, 512GB storage (SSD)", 
                     Price = 20000
                 }
