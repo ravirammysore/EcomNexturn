@@ -1,4 +1,5 @@
-﻿using CoreLogic.Models;
+﻿using CoreLogic.Data;
+using CoreLogic.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,30 +13,9 @@ namespace CoreLogic.Services
     {
         public List<Product> getAllProduct()
         {
-            var products = new List<Product>()
-            {
-                new Product()
-                { 
-                    Id = 1, 
-                    Name = "One Plus", 
-                    Description = "6GB RAM, 64GB storage", 
-                    Price = 20000,
-                },
-                new Product()
-                {
-                    Id = 2,
-                    Name = "Nokia",
-                    Description = "16GB RAM, 512GB storage (SSD)",
-                    Price = 20000
-                },
-                new Product()
-                { 
-                    Id = 3, 
-                    Name = "Apple", 
-                    Description = "8GB RAM, 512GB storage (SSD)", 
-                    Price = 20000
-                }
-            };
+            MyContext ctx = new MyContext();
+
+            var products = ctx.Products.ToList();
             return products;
         }
     }
