@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CoreLogic.Models
 {
-    public class LogIn
+    public class Log
     {
         public int Id { get; set; }
-        public string Password { get; set; }
+        public string Description { get; set; }
     }
 }

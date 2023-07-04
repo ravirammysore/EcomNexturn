@@ -7,20 +7,20 @@ using System.Threading.Tasks;
 
 namespace CoreTests
 {
-    public class LogInTests
+    public class LogTests
     {
-        LogInService loginService;
+        LogService logService;
         [SetUp]
         public void Setup()
         {
-            loginService = new LogInService();
+            logService = new LogService();
         }
 
         [Test]
-        public void GetAllLogInsWorkAsExpected()
+        public void GetAllLogWorkAsExpected()
         {
             //call the service
-            var res = loginService.GetLogIn();
+            var res = logService.GetAll();
             var count = res.Count();
 
             //make sure that the count is not zero
