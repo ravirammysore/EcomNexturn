@@ -11,13 +11,19 @@ using CoreLogic.Services;
 
 namespace WebApp.Pages;
 
-public class IndexModel : PageModel
+public class DetailsModel : PageModel
 {
-    public List<Product> Products { get; set; }
-    
-    public void OnGetAsync()
+    public Product Product { get; set; } = default!;
+  
+    public IActionResult OnGet(int? id)
     {
+        if (id == null) return NotFound();
+
         ProductService productService = new ProductService();
-        Products = productService.getAllProduct();           
+        Product = productService.GetProduct(id.Value);
+        
+        if (Product == null) return NotFound();
+        
+        return Page();
     }
 }
