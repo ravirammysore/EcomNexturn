@@ -14,8 +14,8 @@ public class UserService
     {
         var users = new List<User>()
         {
-            new User() { Id = 1,Name = "Sam"},
-            new User() { Id = 2,Name = "Ted" }
+            new User() { Id = 1,Name = "Sam" , City = "India"},
+            new User() { Id = 2,Name = "Ted" , City = "USA" }
         };
 
         return users;   

@@ -1,0 +1,32 @@
+﻿@page
+@using CoreLogic.Models;
+@model WebApp.Pages.UsersModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<div>
+    <h2 class="display-4">Users List</h2>
+</div>
+
+<table class="table table-striped table-sm">
+    <thead>
+        <tr>
+            <th>User Id</th>
+            <th>User Name</th>
+            <th>User City</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var usr in Model.Users)
+        {
+            <tr>
+                <td>@usr.Id</td>
+                <td>@usr.Name</td>
+                <td>@usr.City</td>
+            </tr>       
+        }
+    </tbody>
+</table>
+
