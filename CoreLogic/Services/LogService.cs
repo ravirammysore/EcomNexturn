@@ -9,6 +9,7 @@ namespace CoreLogic.Services
 {
     public class LogService
     {
+
         public List<Log> GetAll()
         {
             var logList = new List<Log>()
