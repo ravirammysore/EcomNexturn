@@ -8,9 +8,10 @@ using Microsoft.EntityFrameworkCore;
 using CoreLogic.Data;
 using CoreLogic.Models;
 using CoreLogic.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApp.Pages;
-
+[Authorize]
 public class IndexModel : PageModel
 {
     public List<Product> Products { get; set; }

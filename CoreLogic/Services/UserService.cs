@@ -1,5 +1,6 @@
-﻿using CoreLogic.Models;
-
+﻿using CoreLogic.Data;
+using CoreLogic.Models;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,14 +11,25 @@ namespace CoreLogic.Services;
 
 public class UserService
 {
+    MyContext ctx;
+    public UserService()
+    {
+        ctx = new MyContext();
+    }
     public List<User> GetAll()
     {
-        var users = new List<User>()
-        {
-            new User() { Id = 1,Name = "Sam" , City = "India"},
-            new User() { Id = 2,Name = "Ted" , City = "USA" }
-        };
-
-        return users;   
+        return ctx.Users.ToList();
     }
+
+    public void Register(User user)
+    {
+        ctx.Users.Add(user);
+        ctx.SaveChanges();
+    }
+
+    public User Get(string userName)
+    {
+        return ctx.Users.SingleOrDefault(x => x.UserName == userName);
+    }
+   
 }

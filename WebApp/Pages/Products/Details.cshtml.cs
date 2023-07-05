@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using CoreLogic.Data;
 using CoreLogic.Models;
 using CoreLogic.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApp.Pages;
 
+[Authorize]
 public class DetailsModel : PageModel
 {
     public Product Product { get; set; } = default!;

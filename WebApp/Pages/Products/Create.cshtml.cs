@@ -8,9 +8,10 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using CoreLogic.Data;
 using CoreLogic.Models;
 using CoreLogic.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApp.Pages;
-
+[Authorize]
 public class CreateModel : PageModel
 {
     [BindProperty]
