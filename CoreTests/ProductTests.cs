@@ -21,7 +21,7 @@ namespace CoreTests
         public void GetAllProductWorkAsExpected()
         {
             // call the service
-            var res = productService.getAllProduct();
+            var res = productService.getAllProducts();
             var count = res.Count();
 
             // make sure that the count is not zero

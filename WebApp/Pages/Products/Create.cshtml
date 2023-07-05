@@ -29,6 +29,11 @@
                 <span asp-validation-for="Product.Price" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label class="control-label">Category</label>               
+                <select asp-for="Product.CategoryId" asp-items="Model.CategoryOptions" class="form-control"></select>
+            </div>
+            <br />
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>

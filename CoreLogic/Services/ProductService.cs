@@ -30,12 +30,12 @@ public class ProductService
     }
     public Product GetProduct(int id)
     {
-        return ctx.Products.Find(id);
+        return ctx.Products.Include(c => c.Category).Single(p => p.Id == id);
     }
 
-    public List<Product> getAllProduct()
+    public List<Product> getAllProducts()
     {
-        var products = ctx.Products.ToList();
+        var products = ctx.Products.Include(c => c.Category).ToList();
         return products;
     }
 
@@ -46,5 +46,10 @@ public class ProductService
             ctx.Attach(product).State = EntityState.Modified;
             ctx.SaveChanges();
         }
+    }
+
+    public List<Category> getCategories()
+    {
+        return ctx.Categories.ToList();
     }
 }

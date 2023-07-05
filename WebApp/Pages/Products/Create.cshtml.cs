@@ -9,29 +9,52 @@ using CoreLogic.Data;
 using CoreLogic.Models;
 using CoreLogic.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApp.Pages;
 [Authorize]
 public class CreateModel : PageModel
 {
+    private ProductService productService;
+
     [BindProperty]
     public Product Product { get; set; } = default!;
 
-    public IActionResult OnGet()
+    public List<SelectListItem> CategoryOptions { get; set; }
+
+    public CreateModel()
     {
-        return Page();
+        productService = new ProductService();
     }
 
-    public ActionResult OnPost()
+    public IActionResult OnGet()
+    {
+        var categories = productService.getCategories();
+        PopulateCategoriesDropDown();
+        return Page();
+    }
+  
+    public IActionResult OnPost()
     {
         if (!ModelState.IsValid || Product == null)
         {
+            PopulateCategoriesDropDown();
             return Page();
         }
 
-        ProductService productService = new ProductService();
         productService.AddProduct(Product);
-
         return RedirectToPage("./Index");
+    }
+
+    private void PopulateCategoriesDropDown()
+    {
+        var categories = productService.getCategories();
+
+        CategoryOptions = categories.Select(category =>
+                                  new SelectListItem
+                                  {
+                                      Value = category.Id.ToString(),
+                                      Text = category.Name
+                                  }).ToList();
     }
 }

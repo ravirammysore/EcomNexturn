@@ -19,6 +19,6 @@ public class IndexModel : PageModel
     public void OnGetAsync()
     {
         ProductService productService = new ProductService();
-        Products = productService.getAllProduct();           
+        Products = productService.getAllProducts();           
     }
 }
