@@ -18,5 +18,9 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+   /* background: url("https://www.wallpapertip.com/wmimgs/38-388110_background-wallpaper-colorful-website-background-design.jpg");*/
+    background : url("https://www.wallpapertip.com/wmimgs/57-572320_abstract-light-white-background-wallpaper-background-blue-and.jpg");
+    margin-bottom: 60px;
+    background-size: cover;
+    background-position: center;
 }
