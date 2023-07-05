@@ -6,6 +6,7 @@ namespace CoreLogic.Data;
 public class MyContext : DbContext
 {
     public DbSet<Product> Products { get; set; }
+    public object Login { get; internal set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {
