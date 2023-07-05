@@ -13,7 +13,7 @@ public class MyContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {
         var server = "(localdb)";
-        var instance = "MyInstance";
+        var instance = "MSSQLLocalDB";
         var database = "ECommDB";
         var authentication = "Integrated Security = true";
         //var authentication = "user = sa; password = abc1234";
