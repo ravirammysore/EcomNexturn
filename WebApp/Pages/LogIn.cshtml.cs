@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace WebApp.Pages
 {
-    public class LogInModel : PageModel
+    public class LoginModel : PageModel
     {
         [BindProperty]
         public Login Login { get; set; } = default!;
